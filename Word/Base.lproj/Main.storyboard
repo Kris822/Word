@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="W72-Dg-2YN">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="W72-Dg-2YN" customClass="WordCell" customModule="Word" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="W72-Dg-2YN" id="DKD-zZ-unu">
@@ -43,10 +43,10 @@
             </objects>
             <point key="canvasLocation" x="714" y="42"/>
         </scene>
-        <!--View Controller-->
+        <!--EditVC-->
         <scene sceneID="kCp-Qs-bwY">
             <objects>
-                <viewController id="9yT-1i-ey5" sceneMemberID="viewController">
+                <viewController id="9yT-1i-ey5" customClass="EditVC" customModule="Word" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="E4k-IS-FnE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -96,6 +96,9 @@
                                         <rect key="frame" x="0.0" y="0.0" width="47" height="39"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <state key="normal" title="Save"/>
+                                        <connections>
+                                            <action selector="onSave:" destination="9yT-1i-ey5" eventType="touchUpInside" id="ZOm-XS-Eau"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btt-Bb-6Wp">
                                         <rect key="frame" x="196" y="0.0" width="67" height="39"/>
@@ -103,6 +106,9 @@
                                         <state key="normal" title="Cancel">
                                             <color key="titleColor" systemColor="systemPinkColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="onCancel:" destination="9yT-1i-ey5" eventType="touchUpInside" id="CLJ-ZN-VIc"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -118,6 +124,12 @@
                             <constraint firstItem="wdy-yh-9tI" firstAttribute="centerX" secondItem="meo-Zc-cSU" secondAttribute="centerX" id="vSU-Bl-XoL"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cancelButton" destination="btt-Bb-6Wp" id="4yR-CB-bqU"/>
+                        <outlet property="passwordField" destination="4y2-Yj-adk" id="A23-NQ-GvY"/>
+                        <outlet property="saveButton" destination="2io-30-Jfb" id="WgY-6p-EXm"/>
+                        <outlet property="titleField" destination="hCk-AU-4My" id="BaF-hE-eO0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cGv-BR-7P1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -23,4 +23,13 @@ class WordCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func update(with entry: Entry) {
+        if let title = entry.value(forKey: "title") as? String,
+           let password = entry.value(forKey: "password") as? String{
+            
+            titleCell?.text = title
+            subtitleCell?.text = password
+        }
+    }
+    
 }

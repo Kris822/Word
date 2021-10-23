@@ -51,7 +51,7 @@
                 <outlet property="subtitleCell" destination="9tK-KQ-n5i" id="1QB-dV-odg"/>
                 <outlet property="titleCell" destination="m5m-N3-5mj" id="Tu6-aj-Snp"/>
             </connections>
-            <point key="canvasLocation" x="132" y="131"/>
+            <point key="canvasLocation" x="-530" y="123"/>
         </tableViewCell>
     </objects>
     <resources>
