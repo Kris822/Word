@@ -10,6 +10,8 @@ import CoreData
 
 class EditVC: UIViewController {
     
+    var media: [NSManagedObject] = []
+    
     @IBOutlet weak var cancelButton: UIButton!
     
     @IBOutlet weak var saveButton: UIButton!
@@ -31,6 +33,8 @@ class EditVC: UIViewController {
             }
         }
     }
+    
+    
     
     
     @IBAction func onCancel(_ sender: Any) {
