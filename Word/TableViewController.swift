@@ -20,6 +20,24 @@ class TableViewController: UITableViewController {
         readData()
     }
     
+    
+    func deletionAlert(title: String, completion: @escaping (UIAlertAction) -> Void) {
+        let alertMsg = "Are you sure you want to delete \(title)?"
+        let alert = UIAlertController(title: "Warning", message: alertMsg, preferredStyle: .actionSheet)
+        
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive, handler: completion)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        alert.addAction(deleteAction)
+        alert.addAction(cancelAction)
+        
+        alert.popoverPresentationController?.permittedArrowDirections = []
+        alert.popoverPresentationController?.sourceView = self.view
+        alert.popoverPresentationController?.sourceRect = CGRect(x: self.view.frame.midX, y: self.view.frame.midY, width: 0, height: 0)
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
     private func registerTableViewCells(){
         let textFieldCell = UINib(nibName: "WordCell", bundle: nil)
         self.tableView.register(textFieldCell, forCellReuseIdentifier: "WordCell")
@@ -40,10 +58,20 @@ class TableViewController: UITableViewController {
         }
         
         cell.imageCell.image = UIImage(named: "w")
-        
-            
+
         
         return cell
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            if let entry = media[indexPath.row] as? Entry, let title = entry.title {
+                deletionAlert(title: title, completion: { _ in
+                    self.deleteItem(entry: entry)
+                })
+            }
+        }
     }
     
     
@@ -58,7 +86,7 @@ class TableViewController: UITableViewController {
         tableView.reloadData()
     }
     
-    /*func deleteItem(entry: Entry) {
+    func deleteItem(entry: Entry) {
         let context = AppDelegate.cdContext
         if let _ = media.firstIndex(of: entry)  {
             context.delete(entry)
@@ -69,7 +97,7 @@ class TableViewController: UITableViewController {
             }
         }
         readData()
-    }*/
+    }
     
     // MARK: - Actions
     
@@ -78,7 +106,10 @@ class TableViewController: UITableViewController {
         tableView.reloadData()
     }
 
+    @IBAction func onEditButton(_ sender: UIBarButtonItem) {
+        setEditing(!isEditing, animated: true)
     }
+}
     
     //override func tableView(_ tableView: UITableView, numberofRowsInSection section: Int) -> Int {
         

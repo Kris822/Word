@@ -25,10 +25,33 @@ class WordCell: UITableViewCell {
     
     func update(with entry: Entry) {
         if let title = entry.value(forKey: "title") as? String,
-           let password = entry.value(forKey: "password") as? String{
+           let password = entry.value(forKey: "password") as? String,
+           let strength = entry.value(forKey: "strength") as? Int{
             
             titleCell?.text = title
             subtitleCell?.text = password
+            
+            let yellowGreen = UIColor(red: 198/255, green: 1, blue: 84/255, alpha: 1)
+            
+            if strength == 4{
+                self.backgroundColor = UIColor.green
+            }
+            else if strength == 3{
+                self.backgroundColor = yellowGreen
+            }
+            else if strength == 2{
+                self.backgroundColor = UIColor.yellow
+            }
+            else if strength == 1{
+                self.backgroundColor = UIColor.orange
+            }
+            else if strength == 0{
+                self.backgroundColor = UIColor.red
+            }
+            else{
+                self.backgroundColor = UIColor.black
+            }
+            
         }
     }
     

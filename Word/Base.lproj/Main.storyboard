@@ -32,9 +32,14 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="jBM-bm-uGp">
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="Jsy-Ek-dJ0">
+                            <connections>
+                                <action selector="onEditButton:" destination="tYE-jx-2dk" id="Pmw-55-GR9"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="jjo-sC-8Ya">
                             <connections>
-                                <segue destination="9yT-1i-ey5" kind="presentation" id="4xN-Wz-bbs"/>
+                                <segue destination="9yT-1i-ey5" kind="presentation" identifier="unwindSegue" id="4xN-Wz-bbs"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -98,7 +103,6 @@
                                         <state key="normal" title="Save"/>
                                         <connections>
                                             <action selector="onSave:" destination="9yT-1i-ey5" eventType="touchUpInside" id="ZOm-XS-Eau"/>
-                                            <segue destination="BjY-KF-TGC" kind="unwind" unwindAction="myUnwindActionWithUnwindSegue:" id="FNM-HC-OaM"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btt-Bb-6Wp">
@@ -109,7 +113,7 @@
                                         </state>
                                         <connections>
                                             <action selector="onCancel:" destination="9yT-1i-ey5" eventType="touchUpInside" id="CLJ-ZN-VIc"/>
-                                            <segue destination="BjY-KF-TGC" kind="unwind" unwindAction="myUnwindActionWithUnwindSegue:" id="tCM-vT-bXS"/>
+                                            <segue destination="BjY-KF-TGC" kind="unwind" identifier="windSegue" unwindAction="myUnwindActionWithUnwindSegue:" id="7qr-Pb-eWm"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -136,7 +140,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cGv-BR-7P1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="BjY-KF-TGC" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1648" y="28"/>
+            <point key="canvasLocation" x="1599" y="42"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="w57-zZ-aQr">

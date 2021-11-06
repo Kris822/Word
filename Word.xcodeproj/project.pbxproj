@@ -67,6 +67,7 @@
 				A4DAAB5327249061001D7A1F /* AppDelegate.swift */,
 				A4DAAB5527249061001D7A1F /* SceneDelegate.swift */,
 				A4DAAB5727249061001D7A1F /* TableViewController.swift */,
+				A4DAAB6E27249B99001D7A1F /* EditVC.swift */,
 				A4DAAB5927249061001D7A1F /* Main.storyboard */,
 				A4DAAB5F27249062001D7A1F /* Assets.xcassets */,
 				A4DAAB6127249062001D7A1F /* LaunchScreen.storyboard */,
@@ -74,7 +75,6 @@
 				A4DAAB5C27249061001D7A1F /* Word.xcdatamodeld */,
 				A4DAAB6A27249361001D7A1F /* WordCell.swift */,
 				A4DAAB6B27249361001D7A1F /* WordCell.xib */,
-				A4DAAB6E27249B99001D7A1F /* EditVC.swift */,
 			);
 			path = Word;
 			sourceTree = "<group>";
